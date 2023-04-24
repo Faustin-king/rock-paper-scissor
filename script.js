@@ -26,3 +26,36 @@ function playSingleRound(prayerSelection, computerSelection) {
 const playerSelection = 'rock';
 const computerSelection = getComputerChoice();
 console.log(playSingleRound(playerSelection, computerSelection));
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  // play 5 rounds
+  for (let round = 0; round <= 5; round++) {
+    console.log(`Round ${round}:`);
+    const result = playSingleRound();
+
+    if (result === 'win') {
+      console.log('You win!');
+      playerScore++;
+    } else if (result === 'lose') {
+      console.log('You lose!');
+      computerScore++;
+    } else {
+      console.log("It's a tie!");
+    }
+  }
+
+  //report the final score and winner
+  console.log('Final score:');
+  console.log(`You: ${playerScore}`);
+  console.log(`Computer: ${computerScore}`);
+
+  if (playerScore > computerScore) {
+    console.log('You win the game!');
+  } else if (playerScore < computerScore) {
+    console.log('You lose the game!');
+  } else {
+    console.log('The game is a tie!');
+  }
+}
