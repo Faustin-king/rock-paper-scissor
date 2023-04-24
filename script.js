@@ -22,3 +22,7 @@ function playSingleRound(prayerSelection, computerSelection) {
     return `You Lose! ${computerSelection} beats ${prayerSelection}`;
   }
 }
+
+const playerSelection = 'rock';
+const computerSelection = getComputerChoice();
+console.log(playSingleRound(playerSelection, computerSelection));
