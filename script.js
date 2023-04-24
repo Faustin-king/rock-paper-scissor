@@ -32,17 +32,17 @@ function game() {
   let computerScore = 0;
   // play 5 rounds
   for (let round = 0; round <= 5; round++) {
-    console.log(`Round ${round}:`);
+    prompt(`Round ${round}:`);
     const result = playSingleRound();
 
     if (result === 'win') {
-      console.log('You win!');
+      prompt('You win!');
       playerScore++;
     } else if (result === 'lose') {
-      console.log('You lose!');
+      prompt('You lose!');
       computerScore++;
     } else {
-      console.log("It's a tie!");
+      prompt("It's a tie!");
     }
   }
 
