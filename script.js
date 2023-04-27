@@ -8,19 +8,20 @@ function playSingleRound(playerSelection, computerSelection) {
   // Make Prayerselection case-insensitive
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
-  // Define the winning combinations for Rock Paper Scissors.
-  const winnigCombinations = {
-    rock: 'scissors',
-    paper: 'rock',
-    scissors: 'paper',
-  };
-  // Determine the winner based on winning combinations
-  if (playerSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (winnigCombinations[playerSelection] === computerSelection) {
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
+  if (
+    (playerSelection === 'rock' && computerSelection === 'scissors') ||
+    (playerSelection === 'paper' && computerSelection === 'rock') ||
+    (playerSelection === 'scissors' && computerSelection === 'paper')
+  ) {
+    return 'You win!';
+  } else if (
+    (playerSelection === 'rock' && computerSelection === 'paper') ||
+    (playerSelection === 'paper' && computerSelection === 'scissors') ||
+    (playerSelection === 'scissors' && computerSelection === 'rock')
+  ) {
+    return 'You lose!';
   } else {
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    return "It's a tie!";
   }
 }
 // Test function by using console.log to see the results.
