@@ -55,5 +55,3 @@ function game() {
     console.log('The game is tied!');
   }
 }
-
-game();
