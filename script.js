@@ -7,6 +7,7 @@ function getComputerChoice() {
 function playSingleRound(playerSelection, computerSelection) {
   // Make Prayerselection case-insensitive
   playerSelection = playerSelection.toLowerCase();
+  computerSelection = computerSelection.toLowerCase();
   // Define the winning combinations for Rock Paper Scissors.
   const winnigCombinations = {
     rock: 'scissors',
@@ -32,16 +33,20 @@ function game() {
   let computerScore = 0;
 
   for (let i = 1; i <= 5; i++) {
-    const playerSelection = prompt(`Round ${i}: What's your move? (rock/paper/scissors)`).toLocaleUpperCase();
+    const playerSelection = prompt(`Round ${i}: What's your move? (rock/paper/scissors)`).toLowerCase();
     const computerSelection = getComputerChoice();
     const result = playSingleRound(playerSelection, computerSelection);
 
     console.log(`Round ${i}: ${result}`);
 
-    if (result === 'You Win!') {
+    if (result === 'You win!') {
       userScore++;
-    } else if (result === 'You Lose!') {
+      console.log(`User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`);
+    } else if (result === 'You lose!') {
       computerScore++;
+      console.log(`Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`);
+    } else {
+      console.log(`Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`);
     }
   }
 
