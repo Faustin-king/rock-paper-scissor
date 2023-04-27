@@ -28,34 +28,30 @@ function playSingleRound(prayerSelection, computerSelection) {
 // console.log(playSingleRound(playerSelection, computerSelection));
 
 function game() {
-  let playerScore = 0;
+  let userScore = 0;
   let computerScore = 0;
-  // play 5 rounds
-  for (let round = 0; round <= 5; round++) {
-    prompt(`Round ${round}:`);
-    const result = playSingleRound();
 
-    if (result === 'win') {
-      prompt('You win!');
-      playerScore++;
-    } else if (result === 'lose') {
-      prompt('You lose!');
+  for (let i = 1; i <= 5; i++) {
+    const playerSelection = prompt(`Round ${i}: What's your move? (rock/paper/scissors)`);
+    const computerSelection = getComputerChoice();
+    const result = playSingleRound(playerSelection, computerSelection);
+
+    console.log(`Round ${i}: ${result}`);
+
+    if (result === 'You win!') {
+      userScore++;
+    } else if (result === 'You lose!') {
       computerScore++;
-    } else {
-      prompt("It's a tie!");
     }
   }
 
-  //report the final score and winner
-  console.log('Final score:');
-  console.log(`You: ${playerScore}`);
-  console.log(`Computer: ${computerScore}`);
+  console.log(`Final score: You ${userScore} - ${computerScore} Computer`);
 
-  if (playerScore > computerScore) {
-    console.log('You win the game!');
-  } else if (playerScore < computerScore) {
-    console.log('You lose the game!');
+  if (userScore > computerScore) {
+    console.log('Congratulations, you win the game!');
+  } else if (userScore < computerScore) {
+    console.log('Sorry, you lose the game.');
   } else {
-    console.log('The game is a tie!');
+    console.log('The game is tied!');
   }
 }
