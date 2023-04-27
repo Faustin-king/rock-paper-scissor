@@ -32,7 +32,7 @@ function game() {
   let computerScore = 0;
 
   for (let i = 1; i <= 5; i++) {
-    const playerSelection = prompt(`Round ${i}: What's your move? (rock/paper/scissors)`);
+    const playerSelection = prompt(`Round ${i}: What's your move? (rock/paper/scissors)`).toLocaleUpperCase();
     const computerSelection = getComputerChoice();
     const result = playSingleRound(playerSelection, computerSelection);
 
