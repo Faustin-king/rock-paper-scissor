@@ -4,9 +4,9 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
-function playSingleRound(prayerSelection, computerSelection) {
+function playSingleRound(playerSelection, computerSelection) {
   // Make Prayerselection case-insensitive
-  prayerSelection = prayerSelection.toLowerCase();
+  playerSelection = playerSelection.toLowerCase();
   // Define the winning combinations for Rock Paper Scissors.
   const winnigCombinations = {
     rock: 'scissors',
@@ -14,12 +14,12 @@ function playSingleRound(prayerSelection, computerSelection) {
     scissors: 'paper',
   };
   // Determine the winner based on winning combinations
-  if (prayerSelection === computerSelection) {
+  if (playerSelection === computerSelection) {
     return "It's a tie!";
-  } else if (winnigCombinations[prayerSelection] === computerSelection) {
-    return `You Win! ${prayerSelection} beats ${computerSelection}`;
+  } else if (winnigCombinations[playerSelection] === computerSelection) {
+    return `You Win! ${playerSelection} beats ${computerSelection}`;
   } else {
-    return `You Lose! ${computerSelection} beats ${prayerSelection}`;
+    return `You Lose! ${computerSelection} beats ${playerSelection}`;
   }
 }
 // Test function by using console.log to see the results.
@@ -38,9 +38,9 @@ function game() {
 
     console.log(`Round ${i}: ${result}`);
 
-    if (result === 'You win!') {
+    if (result === 'You Win!') {
       userScore++;
-    } else if (result === 'You lose!') {
+    } else if (result === 'You Lose!') {
       computerScore++;
     }
   }
