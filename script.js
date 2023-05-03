@@ -1,3 +1,17 @@
+const rockBtn = document.querySelector('#rock-btn');
+const paperBtn = document.querySelector('#paper-btn');
+const scissorsBtn = document.querySelector('#scissors-btn');
+
+rockBtn.addEventListener('click', () => {
+  playSingleRound('rock');
+});
+paperBtn.addEventListener('click', () => {
+  playSingleRound('paper');
+});
+scissorsBtn.addEventListener('click', () => {
+  playSingleRound('scissors');
+});
+
 function getComputerChoice() {
   const choices = ['Rock', 'Paper', 'Scissors'];
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -23,6 +37,8 @@ function playSingleRound(playerSelection, computerSelection) {
   } else {
     return "It's a tie!";
   }
+
+  console.log(`Player selects ${playerSelection}`);
 }
 // Test function by using console.log to see the results.
 // const playerSelection = 'rock';
