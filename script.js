@@ -18,7 +18,7 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
-function playSingleRound(playerSelection, computerSelection) {
+function playSingleRound(playerSelection) {
   // Make Prayerselection case-insensitive
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
