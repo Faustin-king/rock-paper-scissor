@@ -37,8 +37,6 @@ function playSingleRound(playerSelection, computerSelection) {
   } else {
     return "It's a tie!";
   }
-
-  console.log(`Player selects ${playerSelection}`);
 }
 // Test function by using console.log to see the results.
 // const playerSelection = 'rock';
