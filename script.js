@@ -1,6 +1,3 @@
-const rockBtn = document.querySelector('#rock-btn');
-const paperBtn = document.querySelector('#paper-btn');
-const scissorsBtn = document.querySelector('#scissors-btn');
 const resultsDiv = document.querySelector('#results');
 
 function getComputerChoice() {
@@ -29,15 +26,6 @@ function playSingleRound(playerSelection, computerSelection) {
     return "It's a tie!";
   }
 }
-rockBtn.addEventListener('click', () => {
-  playSingleRound('rock');
-});
-paperBtn.addEventListener('click', () => {
-  playSingleRound('paper');
-});
-scissorsBtn.addEventListener('click', () => {
-  playSingleRound('scissors');
-});
 // Test function by using console.log to see the results.
 // const playerSelection = 'rock';
 // const computerSelection = getComputerChoice();
@@ -47,45 +35,66 @@ function game() {
   let userScore = 0;
   let computerScore = 0;
 
-  // Loops until the player chooses to quit
-  while (true) {
-    const playerSelection = prompt(
-      "Choose rock, paper, or scissors (or type 'quit' to exit):"
-    );
+  // // Loops until the player chooses to quit
+  // while (true) {
+  //   const playerSelection = prompt(
+  //     "Choose rock, paper, or scissors (or type 'quit' to exit):"
+  //   );
 
-    // Ends the game if the player types 'quit'
-    if (playerSelection === null || playerSelection.toLowerCase() === 'quit') {
-      break;
-    }
+  //   // Ends the game if the player types 'quit'
+  //   if (playerSelection === null || playerSelection.toLowerCase() === 'quit') {
+  //     break;
+  //   }
+  const computerSelection = getComputerChoice();
+  const result = playSingleRound(playerSelection, computerSelection);
+
+  console.log(result);
+  const rockBtn = document.querySelector('#rock-btn');
+  const paperBtn = document.querySelector('#paper-btn');
+  const scissorsBtn = document.querySelector('#scissors-btn');
+
+  rockBtn.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
-    const result = playSingleRound(playerSelection, computerSelection);
-
+    const result = playSingleRound('rock', computerSelection);
     console.log(result);
+    game('rock');
+  });
+  paperBtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice();
+    const result = playSingleRound('paper', computerSelection);
+    console.log(result);
+    game('paper');
+  });
+  scissorsBtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice();
+    const result = playSingleRound('scissors', computerSelection);
+    console.log(result);
+    game('scissors');
+  });
 
-    if (result === 'You win!') {
-      userScore++;
-      console.log(
-        `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
-      );
-    } else if (result === 'You lose!') {
-      computerScore++;
-      console.log(
-        `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
-      );
-    } else {
-      console.log(
-        `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
-      );
-    }
+  if (result === 'You win!') {
+    userScore++;
+    console.log(
+      `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+    );
+  } else if (result === 'You lose!') {
+    computerScore++;
+    console.log(
+      `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+    );
+  } else {
+    console.log(
+      `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
+    );
+  }
 
-    console.log(`Final score: You ${userScore} - ${computerScore} Computer`);
+  console.log(`Final score: You ${userScore} - ${computerScore} Computer`);
 
-    if (userScore > computerScore) {
-      console.log('Congratulations, you win the game!');
-    } else if (userScore < computerScore) {
-      console.log('Sorry, you lose the game.');
-    } else {
-      console.log('The game is tied!');
-    }
+  if (userScore > computerScore) {
+    console.log('Congratulations, you win the game!');
+  } else if (userScore < computerScore) {
+    console.log('Sorry, you lose the game.');
+  } else {
+    console.log('The game is tied!');
   }
 }
