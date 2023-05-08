@@ -21,15 +21,15 @@ function playSingleRound(playerSelection, computerSelection) {
     (playerSelection === 'paper' && computerSelection === 'rock') ||
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
-    return 'You win!';
+    return `You Win! ${playerSelection} beats ${computerSelection}`;
   } else if (
+    (playerSelection === 'scissors' && computerSelection === 'rock') ||
     (playerSelection === 'rock' && computerSelection === 'paper') ||
-    (playerSelection === 'paper' && computerSelection === 'scissors') ||
-    (playerSelection === 'scissors' && computerSelection === 'rock')
+    (playerSelection === 'paper' && computerSelection === 'scissors')
   ) {
-    return 'You lose!';
+    return `You Lose! ${computerSelection} beats ${playerSelection}`;
   } else {
-    return "It's a tie!";
+    return "it's tie";
   }
 }
 // Test function by using console.log to see the results.
