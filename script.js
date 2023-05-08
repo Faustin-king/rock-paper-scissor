@@ -47,37 +47,45 @@ function game() {
   let userScore = 0;
   let computerScore = 0;
 
-  const playerSelection = prompt(
-    `Round ${i}: What's your move? (rock/paper/scissors)`
-  ).toLowerCase();
-  const computerSelection = getComputerChoice();
-  const result = playSingleRound(playerSelection, computerSelection);
-
-  console.log(`Round ${i}: ${result}`);
-
-  if (result === 'You win!') {
-    userScore++;
-    console.log(
-      `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+  // Loops until the player chooses to quit
+  while (true) {
+    const playerSelection = prompt(
+      "Choose rock, paper, or scissors (or type 'quit' to exit):"
     );
-  } else if (result === 'You lose!') {
-    computerScore++;
-    console.log(
-      `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
-    );
-  } else {
-    console.log(
-      `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
-    );
-  }
 
-  console.log(`Final score: You ${userScore} - ${computerScore} Computer`);
+    // Ends the game if the player types 'quit'
+    if (playerSelection === null || playerSelection.toLowerCase() === 'quit') {
+      break;
+    }
+    const computerSelection = getComputerChoice();
+    const result = playSingleRound(playerSelection, computerSelection);
 
-  if (userScore > computerScore) {
-    console.log('Congratulations, you win the game!');
-  } else if (userScore < computerScore) {
-    console.log('Sorry, you lose the game.');
-  } else {
-    console.log('The game is tied!');
+    console.log(`Round ${i}: ${result}`);
+
+    if (result === 'You win!') {
+      userScore++;
+      console.log(
+        `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+      );
+    } else if (result === 'You lose!') {
+      computerScore++;
+      console.log(
+        `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+      );
+    } else {
+      console.log(
+        `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
+      );
+    }
+
+    console.log(`Final score: You ${userScore} - ${computerScore} Computer`);
+
+    if (userScore > computerScore) {
+      console.log('Congratulations, you win the game!');
+    } else if (userScore < computerScore) {
+      console.log('Sorry, you lose the game.');
+    } else {
+      console.log('The game is tied!');
+    }
   }
 }
