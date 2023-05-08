@@ -47,30 +47,28 @@ function game() {
   let userScore = 0;
   let computerScore = 0;
 
-  for (let i = 1; i <= 5; i++) {
-    const playerSelection = prompt(
-      `Round ${i}: What's your move? (rock/paper/scissors)`
-    ).toLowerCase();
-    const computerSelection = getComputerChoice();
-    const result = playSingleRound(playerSelection, computerSelection);
+  const playerSelection = prompt(
+    `Round ${i}: What's your move? (rock/paper/scissors)`
+  ).toLowerCase();
+  const computerSelection = getComputerChoice();
+  const result = playSingleRound(playerSelection, computerSelection);
 
-    console.log(`Round ${i}: ${result}`);
+  console.log(`Round ${i}: ${result}`);
 
-    if (result === 'You win!') {
-      userScore++;
-      console.log(
-        `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
-      );
-    } else if (result === 'You lose!') {
-      computerScore++;
-      console.log(
-        `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
-      );
-    } else {
-      console.log(
-        `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
-      );
-    }
+  if (result === 'You win!') {
+    userScore++;
+    console.log(
+      `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+    );
+  } else if (result === 'You lose!') {
+    computerScore++;
+    console.log(
+      `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+    );
+  } else {
+    console.log(
+      `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
+    );
   }
 
   console.log(`Final score: You ${userScore} - ${computerScore} Computer`);
