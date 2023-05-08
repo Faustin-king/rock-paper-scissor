@@ -39,9 +39,9 @@ scissorsBtn.addEventListener('click', () => {
   playSingleRound('scissors');
 });
 // Test function by using console.log to see the results.
-const playerSelection = 'rock';
-const computerSelection = getComputerChoice();
-console.log(playSingleRound(playerSelection, computerSelection));
+// const playerSelection = 'rock';
+// const computerSelection = getComputerChoice();
+// console.log(playSingleRound(playerSelection, computerSelection));
 
 function game() {
   let userScore = 0;
