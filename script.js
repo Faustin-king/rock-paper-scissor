@@ -62,3 +62,15 @@ function game(playerSelection) {
     resultDiv.textContent = 'The game is tied!';
   }
 }
+
+rockButton.addEventListener('click', () => {
+  game('rock');
+});
+
+paperButton.addEventListener('click', () => {
+  game('paper');
+});
+
+scissorsButton.addEventListener('click', () => {
+  game('scissors');
+});
