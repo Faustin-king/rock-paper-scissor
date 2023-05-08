@@ -1,4 +1,7 @@
 const resultsDiv = document.querySelector('#results');
+const playerScoreDisplay = document.querySelector('#player-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
+const gameResultDisplay = document.querySelector('#game-result');
 
 function getComputerChoice() {
   const choices = ['Rock', 'Paper', 'Scissors'];
