@@ -60,7 +60,7 @@ function game() {
     const computerSelection = getComputerChoice();
     const result = playSingleRound(playerSelection, computerSelection);
 
-    console.log(`Round ${i}: ${result}`);
+    console.log(result);
 
     if (result === 'You win!') {
       userScore++;
