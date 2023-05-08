@@ -9,7 +9,7 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
-function playSingleRound(playerSelection) {
+function playSingleRound(playerSelection, computerSelection) {
   // Make Prayerselection case-insensitive
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
@@ -48,7 +48,9 @@ function game() {
   let computerScore = 0;
 
   for (let i = 1; i <= 5; i++) {
-    const playerSelection = prompt(`Round ${i}: What's your move? (rock/paper/scissors)`).toLowerCase();
+    const playerSelection = prompt(
+      `Round ${i}: What's your move? (rock/paper/scissors)`
+    ).toLowerCase();
     const computerSelection = getComputerChoice();
     const result = playSingleRound(playerSelection, computerSelection);
 
@@ -56,12 +58,18 @@ function game() {
 
     if (result === 'You win!') {
       userScore++;
-      console.log(`User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`);
+      console.log(
+        `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+      );
     } else if (result === 'You lose!') {
       computerScore++;
-      console.log(`Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`);
+      console.log(
+        `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
+      );
     } else {
-      console.log(`Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`);
+      console.log(
+        `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
+      );
     }
   }
 
