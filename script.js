@@ -34,70 +34,31 @@ function playSingleRound(playerSelection, computerSelection) {
 // const computerSelection = getComputerChoice();
 // console.log(playSingleRound(playerSelection, computerSelection));
 
-function game() {
-  let userScore = 0;
+function game(playerSelection) {
+  let playerScore = 0;
   let computerScore = 0;
 
-  // // Loops until the player chooses to quit
-  // while (true) {
-  //   const playerSelection = prompt(
-  //     "Choose rock, paper, or scissors (or type 'quit' to exit):"
-  //   );
-
-  //   // Ends the game if the player types 'quit'
-  //   if (playerSelection === null || playerSelection.toLowerCase() === 'quit') {
-  //     break;
-  //   }
   const computerSelection = getComputerChoice();
   const result = playSingleRound(playerSelection, computerSelection);
+  resultDiv.textContent = result;
 
-  console.log(result);
-  const rockBtn = document.querySelector('#rock-btn');
-  const paperBtn = document.querySelector('#paper-btn');
-  const scissorsBtn = document.querySelector('#scissors-btn');
-
-  rockBtn.addEventListener('click', () => {
-    const computerSelection = getComputerChoice();
-    const result = playSingleRound('rock', computerSelection);
-    console.log(result);
-    game('rock');
-  });
-  paperBtn.addEventListener('click', () => {
-    const computerSelection = getComputerChoice();
-    const result = playSingleRound('paper', computerSelection);
-    console.log(result);
-    game('paper');
-  });
-  scissorsBtn.addEventListener('click', () => {
-    const computerSelection = getComputerChoice();
-    const result = playSingleRound('scissors', computerSelection);
-    console.log(result);
-    game('scissors');
-  });
-
-  if (result === 'You win!') {
-    userScore++;
-    console.log(
-      `User wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
-    );
-  } else if (result === 'You lose!') {
+  // Updates the scores based on the result of each round
+  if (result.includes('Win')) {
+    playerScore++;
+    playerScoreDisplay.textContent = `Player: ${playerScore}`;
+  } else if (result.includes('Lose')) {
     computerScore++;
-    console.log(
-      `Computer wins round ${i}. User score: ${userScore}, computer score: ${computerScore}`
-    );
-  } else {
-    console.log(
-      `Round ${i} is a tie. User score: ${userScore}, computer score: ${computerScore}`
-    );
+    computerScoreDisplay.textContent = `Computer: ${computerScore}`;
   }
 
-  console.log(`Final score: You ${userScore} - ${computerScore} Computer`);
+  // Prints the final scores and declares the winner
+  gameResultDisplay.textContent = `Finalscore: You ${playerScore}, Computer ${computerScore}`;
 
-  if (userScore > computerScore) {
-    console.log('Congratulations, you win the game!');
-  } else if (userScore < computerScore) {
-    console.log('Sorry, you lose the game.');
+  if (playerScore > computerScore) {
+    resultDiv.textContent = 'Congratulations, You won the game!';
+  } else if (playerScore < computerScore) {
+    resultDiv.textContent = 'Sorry,You lost the game!';
   } else {
-    console.log('The game is tied!');
+    resultDiv.textContent = 'The game is tied!';
   }
 }
